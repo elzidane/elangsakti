@@ -115,7 +115,7 @@ const LiveScore = () => {
                   <div className="text-2xl font-bold text-white">24</div>
                   <div className="text-gray-400">Pertandingan</div>
                 </div>
-                <ChartBarIcon className="w-8 h-8 text-blue-500" />
+                <ChartBarIcon className="w-8 h-8 text-red-500" />
               </div>
             </div>
             <div className="card">

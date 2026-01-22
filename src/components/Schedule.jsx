@@ -31,7 +31,7 @@ const Schedule = () => {
 
   const getTypeColor = (type) => {
     const colors = {
-      registration: "bg-blue-500/20 text-blue-300",
+      registration: "bg-red-500/20 text-red-300",
       ceremony: "bg-purple-500/20 text-purple-300",
       competition: "bg-primary-500/20 text-primary-300",
       break: "bg-yellow-500/20 text-yellow-300",

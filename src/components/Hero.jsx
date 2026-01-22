@@ -47,7 +47,7 @@ const Hero = () => {
       icon: <CalendarDaysIcon className="w-5 h-5" />, 
       value: '3', 
       label: 'Hari Event',
-      gradient: 'from-blue-500 via-cyan-500 to-teal-500',
+      gradient: 'from-red-500 via-cyan-500 to-teal-500',
       delay: '200'
     },
     { 
@@ -78,7 +78,7 @@ const Hero = () => {
       {/* Background Glow Effects */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent opacity-50"></div>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary-500/5 rounded-full blur-3xl"></div>
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-3xl"></div>
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-red-500/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-purple-500/5 rounded-full blur-3xl"></div>
 
       {/* Animated Grid */}
@@ -91,7 +91,7 @@ const Hero = () => {
         <div className="w-4 h-4 rounded-full bg-gradient-to-r from-primary-500 to-cyan-500 opacity-60"></div>
       </div>
       <div className="absolute top-40 right-20 animate-float animation-delay-1000">
-        <div className="w-3 h-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 opacity-40"></div>
+        <div className="w-3 h-3 rounded-full bg-gradient-to-r from-red-500 to-purple-500 opacity-40"></div>
       </div>
       <div className="absolute bottom-40 left-20 animate-float animation-delay-1500">
         <div className="w-5 h-5 rounded-full bg-gradient-to-r from-amber-500 to-red-500 opacity-50"></div>

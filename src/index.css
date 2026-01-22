@@ -1,41 +1,138 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  html {
-    scroll-behavior: smooth;
+/* Animasi Global untuk Elang Sakti */
+@keyframes gradient {
+  0%, 100% {
+    background-position: 0% 50%;
   }
-  
-  body {
-    font-family: 'Inter', sans-serif;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
+  50% {
+    background-position: 100% 50%;
   }
 }
 
-@layer components {
-  .btn-primary {
-    @apply bg-gradient-to-r from-primary-700 to-primary-800 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:from-primary-800 hover:to-primary-900 transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
   }
-  
-  .btn-secondary {
-    @apply bg-gradient-to-r from-gray-800 to-gray-900 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:from-gray-900 hover:to-black transition-all duration-300 hover:shadow-xl;
+  50% {
+    transform: translateY(-20px);
   }
-  
-  .card {
-    @apply bg-gradient-to-br from-gray-900 to-black border border-primary-900/30 rounded-xl p-6 shadow-xl backdrop-blur-sm;
+}
+
+@keyframes blob {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
   }
-  
-  .section-title {
-    @apply text-3xl md:text-4xl font-bold text-center mb-12 relative;
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
   }
-  
-  .section-title::after {
-    @apply content-[''] absolute bottom-[-12px] left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-primary-700 to-primary-500 rounded-full;
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
   }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Kelas Animasi */
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 3s ease infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-blob {
+  animation: blob 20s infinite;
+}
+
+.animate-bounce {
+  animation: bounce 2s infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.6s ease-out;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+.animation-delay-1000 {
+  animation-delay: 1s;
+}
+
+.animation-delay-1500 {
+  animation-delay: 1.5s;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Warna Kustom untuk Primary jika diperlukan */
+:root {
+  /* Color Palette Merah Gelap (Dark Red) */
+  --color-primary-50: #fef2f2;
+  --color-primary-100: #fee2e2;
+  --color-primary-200: #fecaca;
+  --color-primary-300: #fca5a5;
+  --color-primary-400: #f87171;
+  --color-primary-500: #ef4444;
+  --color-primary-600: #dc2626;
+  --color-primary-700: #b91c1c;
+  --color-primary-800: #991b1b;
+  --color-primary-900: #7f1d1d;
+  --color-primary-950: #450a0a;
+
+  /* Warna Accent untuk variasi */
+  --color-accent-500: #ea580c;  /* Orange */
+  --color-accent-600: #c2410c;
 }

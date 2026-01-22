@@ -260,7 +260,7 @@ const Registration = () => {
 
               <div className="card">
                 <div className="flex items-center space-x-3 mb-6">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-700 to-blue-600 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-red-700 to-red-600 flex items-center justify-center">
                     <AcademicCapIcon className="w-6 h-6 text-white" />
                   </div>
                   <div>

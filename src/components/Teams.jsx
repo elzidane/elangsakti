@@ -23,7 +23,7 @@ const Teams = () => {
       score: 92,
       members: 16,
       achievements: ["Juara 1 2022"],
-      color: "from-blue-600 to-blue-800"
+      color: "from-red-600 to-red-800"
     },
     {
       id: 3,
