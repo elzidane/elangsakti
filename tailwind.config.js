@@ -6,6 +6,11 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'heading': ['Montserrat', 'sans-serif'],
+        'body': ['Inter', 'sans-serif'],
+        'display': ['Poppins', 'sans-serif'],
+      },
       animation: {
         'gradient': 'gradient 3s ease infinite',
         'float': 'float 6s ease-in-out infinite',
