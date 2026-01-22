@@ -84,13 +84,13 @@ const Registration = () => {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-red-900/30 to-red-950/30 border border-red-800/30 mb-6">
             <ClipboardDocumentIcon className="w-4 h-4 text-red-400" />
-            <span className="text-sm font-medium text-red-300">REGISTRASI</span>
+            <span className="text-sm font-medium font-display text-red-300">REGISTRASI</span>
           </div>
           
-          <h2 className="text-5xl font-bold text-white mb-4">
+          <h2 className="text-5xl font-bold font-display text-white mb-4">
             Daftarkan <span className="bg-gradient-to-r from-red-500 to-rose-600 bg-clip-text text-transparent">Tim</span>
           </h2>
-          <p className="text-gray-400 text-lg">
+          <p className="text-gray-400 font-display text-lg">
             Bergabung dalam kompetisi terbaik
           </p>
         </div>
@@ -132,7 +132,7 @@ const Registration = () => {
                         <div>
                           <div className="flex items-center gap-2 mb-3">
                             <BuildingLibraryIcon className="w-5 h-5 text-gray-400" />
-                            <label className="text-gray-300 text-sm font-medium">Sekolah</label>
+                            <label className="text-gray-300 text-sm font-display font-medium">Sekolah</label>
                           </div>
                           <input
                             type="text"
@@ -148,7 +148,7 @@ const Registration = () => {
                         <div>
                           <div className="flex items-center gap-2 mb-3">
                             <TicketIcon className="w-5 h-5 text-gray-400" />
-                            <label className="text-gray-300 text-sm font-medium">Nama Tim</label>
+                            <label className="text-gray-300 text-sm font-display font-medium">Nama Tim</label>
                           </div>
                           <input
                             type="text"
@@ -166,7 +166,7 @@ const Registration = () => {
                         <div>
                           <div className="flex items-center gap-2 mb-3">
                             <UsersIcon className="w-5 h-5 text-gray-400" />
-                            <label className="text-gray-300 text-sm font-medium">Kategori</label>
+                            <label className="text-gray-300 text-sm font-display font-medium">Kategori</label>
                           </div>
                           <div className="grid grid-cols-3 gap-3">
                             {categories.map((cat) => (
@@ -189,7 +189,7 @@ const Registration = () => {
                         <div>
                           <div className="flex items-center gap-2 mb-3">
                             <UserGroupIcon className="w-5 h-5 text-gray-400" />
-                            <label className="text-gray-300 text-sm font-medium">Anggota</label>
+                            <label className="text-gray-300 text-sm font-medium font-display">Anggota</label>
                           </div>
                           <div className="bg-gray-900/30 border border-gray-700 rounded-xl p-4">
                             <div className="flex items-center justify-center gap-8">
@@ -204,7 +204,7 @@ const Registration = () => {
                                 <div className="text-4xl font-bold bg-gradient-to-r from-red-500 to-rose-600 bg-clip-text text-transparent">
                                   {formData.members}
                                 </div>
-                                <div className="text-xs text-gray-500">anggota</div>
+                                <div className="text-xs font-display text-gray-500">anggota</div>
                               </div>
                               <button
                                 type="button"
@@ -223,7 +223,7 @@ const Registration = () => {
                           type="button"
                           onClick={nextStep}
                           disabled={!formData.schoolName || !formData.teamName || !formData.category}
-                          className="px-8 py-3 bg-gradient-to-r from-red-500 to-rose-600 rounded-xl font-semibold text-white hover:shadow-lg hover:shadow-red-500/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                          className="px-8 py-3 font-display bg-gradient-to-r from-red-500 to-rose-600 rounded-xl font-semibold text-white hover:shadow-lg hover:shadow-red-500/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
                         >
                           Lanjutkan <ArrowRightIcon className="w-4 h-4" />
                         </button>
@@ -237,7 +237,7 @@ const Registration = () => {
                       <div>
                         <div className="flex items-center gap-2 mb-3">
                           <UserIcon className="w-5 h-5 text-gray-400" />
-                          <label className="text-gray-300 text-sm font-medium">Pembina</label>
+                          <label className="text-gray-300 text-sm font-display font-medium">Pembina</label>
                         </div>
                         <input
                           type="text"
@@ -301,7 +301,7 @@ const Registration = () => {
                         <button
                           type="button"
                           onClick={prevStep}
-                          className="px-6 py-3 border border-gray-700 rounded-xl font-semibold text-gray-300 hover:border-gray-600 hover:text-white transition-all"
+                          className=" font-display px-6 py-3 border border-gray-700 rounded-xl font-semibold text-gray-300 hover:border-gray-600 hover:text-white transition-all"
                         >
                           Kembali
                         </button>
@@ -309,7 +309,7 @@ const Registration = () => {
                           type="button"
                           onClick={nextStep}
                           disabled={!formData.coachName || !formData.coachPhone || !formData.coachEmail || !formData.address}
-                          className="px-8 py-3 bg-gradient-to-r from-red-500 to-rose-600 rounded-xl font-semibold text-white hover:shadow-lg hover:shadow-red-500/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                          className="font-display px-8 py-3 bg-gradient-to-r from-red-500 to-rose-600 rounded-xl font-semibold text-white hover:shadow-lg hover:shadow-red-500/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
                         >
                           Lanjutkan <ArrowRightIcon className="w-4 h-4" />
                         </button>
@@ -322,7 +322,7 @@ const Registration = () => {
                     <div className="space-y-8 animate-fadeIn">
                       <div className="grid grid-cols-2 gap-4">
                         <div className="p-4 rounded-xl bg-gray-900/30 border border-gray-700">
-                          <div className="text-xs text-gray-400 mb-1">Sekolah</div>
+                          <div className="text-xs text-gray-400 font-display mb-1">Sekolah</div>
                           <div className="text-white font-semibold">{formData.schoolName}</div>
                         </div>
                         <div className="p-4 rounded-xl bg-gray-900/30 border border-gray-700">
@@ -333,15 +333,15 @@ const Registration = () => {
 
                       <div className="grid grid-cols-3 gap-4">
                         <div className="p-4 rounded-xl bg-gray-900/30 border border-gray-700">
-                          <div className="text-xs text-gray-400 mb-1">Kategori</div>
+                          <div className="text-xs text-gray-400 mb-1 font-display">Kategori</div>
                           <div className="text-white font-semibold capitalize">{formData.category}</div>
                         </div>
                         <div className="p-4 rounded-xl bg-gray-900/30 border border-gray-700">
-                          <div className="text-xs text-gray-400 mb-1">Anggota</div>
+                          <div className="text-xs text-gray-400 mb-1 font-display">Anggota</div>
                           <div className="text-2xl font-bold text-white">{formData.members}</div>
                         </div>
                         <div className="p-4 rounded-xl bg-gray-900/30 border border-gray-700">
-                          <div className="text-xs text-gray-400 mb-1">Pembina</div>
+                          <div className="text-xs text-gray-400 mb-1 font-display">Pembina</div>
                           <div className="text-white font-semibold">{formData.coachName}</div>
                         </div>
                       </div>
@@ -357,7 +357,7 @@ const Registration = () => {
                             className="w-5 h-5 rounded border-gray-600 bg-gray-800 text-red-500 focus:ring-red-500/20"
                             required
                           />
-                          <label htmlFor="agreement" className="text-gray-300 text-sm">
+                          <label htmlFor="agreement" className="font-display text-gray-300 text-sm">
                             Setuju dengan persyaratan
                           </label>
                         </div>
@@ -367,7 +367,7 @@ const Registration = () => {
                         <button
                           type="button"
                           onClick={prevStep}
-                          className="px-6 py-3 border border-gray-700 rounded-xl font-semibold text-gray-300 hover:border-gray-600 hover:text-white transition-all"
+                          className="font-display px-6 py-3 border border-gray-700 rounded-xl font-semibold text-gray-300 hover:border-gray-600 hover:text-white transition-all"
                         >
                           Kembali
                         </button>
@@ -378,7 +378,7 @@ const Registration = () => {
                         >
                           {isSubmitting ? (
                             <div className="flex items-center gap-2">
-                              <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                              <div className="font-display w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                               <span>Mengirim...</span>
                             </div>
                           ) : 'Kirim Pendaftaran'}
@@ -395,30 +395,30 @@ const Registration = () => {
           <div className="space-y-6">
             {/* Info Cards */}
             <div className="bg-gradient-to-br from-gray-900/40 to-gray-950/60 backdrop-blur-sm rounded-2xl border border-gray-800 p-6">
-              <h3 className="text-xl font-bold text-white mb-6">Info Penting</h3>
+              <h3 className="font-display text-xl font-bold text-white mb-6">Info Penting</h3>
               
               <div className="space-y-4">
                 <div className="flex items-center justify-between p-4 rounded-xl bg-gray-900/30 hover:bg-gray-900/50 transition-colors">
                   <div>
-                    <div className="text-sm text-gray-400">Biaya</div>
-                    <div className="text-2xl font-bold text-white">Rp 500K</div>
+                    <div className="text-sm text-gray-400 font-display">Biaya</div>
+                    <div className="text-2xl font-bold text-white font-display">Rp 500K</div>
                   </div>
                   <AcademicCapIcon className="w-8 h-8 text-red-400" />
                 </div>
 
                 <div className="flex items-center justify-between p-4 rounded-xl bg-gray-900/30 hover:bg-gray-900/50 transition-colors">
                   <div>
-                    <div className="text-sm text-gray-400">Batas</div>
-                    <div className="text-lg font-bold text-white">10 Nov 2024</div>
+                    <div className="text-sm text-gray-400 font-display">Batas</div>
+                    <div className="text-lg font-bold text-white font-display">10 Nov 2024</div>
                   </div>
                   <CalendarDaysIcon className="w-8 h-8 text-red-400" />
                 </div>
 
                 <div className="flex items-center justify-between p-4 rounded-xl bg-gray-900/30 hover:bg-gray-900/50 transition-colors">
                   <div>
-                    <div className="text-sm text-gray-400">Kuota</div>
-                    <div className="text-lg font-bold text-white">24 Tim</div>
-                    <div className="text-xs text-gray-500">8 slot tersisa</div>
+                    <div className="text-sm text-gray-400 font-display">Kuota</div>
+                    <div className="text-lg font-bold text-white font-display">24 Tim</div>
+                    <div className="text-xs text-gray-500 font-display">8 slot tersisa</div>
                   </div>
                   <TicketIcon className="w-8 h-8 text-red-400" />
                 </div>
@@ -427,12 +427,12 @@ const Registration = () => {
 
             {/* Requirements */}
             <div className="bg-gradient-to-br from-gray-900/40 to-gray-950/60 backdrop-blur-sm rounded-2xl border border-gray-800 p-6">
-              <h3 className="text-xl font-bold text-white mb-6">Persyaratan</h3>
+              <h3 className="text-xl font-bold text-white mb-6 font-display">Persyaratan</h3>
               <div className="space-y-3">
                 {['Surat sekolah', 'Pas foto 3x4', 'Kartu pelajar', 'Formulir', 'Izin orang tua', 'Sertifikat kesehatan'].map((req, index) => (
                   <div key={index} className="flex items-center gap-3 p-3 rounded-lg bg-gray-900/30 hover:bg-gray-900/50 transition-colors">
                     <CheckCircleIcon className="w-5 h-5 text-green-500 flex-shrink-0" />
-                    <span className="text-sm text-gray-300">{req}</span>
+                    <span className="text-sm text-gray-300 font-display">{req}</span>
                   </div>
                 ))}
               </div>
@@ -440,15 +440,15 @@ const Registration = () => {
 
             {/* Contact */}
             <div className="bg-gradient-to-br from-gray-900/40 to-gray-950/60 backdrop-blur-sm rounded-2xl border border-gray-800 p-6">
-              <h3 className="text-xl font-bold text-white mb-6">Kontak</h3>
+              <h3 className="text-xl font-bold text-white mb-6 font-display">Kontak</h3>
               <div className="space-y-4">
                 <div className="flex items-center gap-3 p-3 rounded-lg bg-gray-900/30 hover:bg-gray-900/50 transition-colors">
                   <div className="p-2 rounded-lg bg-gradient-to-br from-red-500/20 to-red-600/10">
                     <PhoneIcon className="w-5 h-5 text-red-400" />
                   </div>
                   <div>
-                    <div className="text-sm text-white font-medium">0812-3456-7890</div>
-                    <div className="text-xs text-gray-400">Telepon/WA</div>
+                    <div className="text-sm text-white font-medium font-display">0812-3456-7890</div>
+                    <div className="text-xs text-gray-400 font-display">Telepon/WA</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 p-3 rounded-lg bg-gray-900/30 hover:bg-gray-900/50 transition-colors">
@@ -456,8 +456,8 @@ const Registration = () => {
                     <EnvelopeIcon className="w-5 h-5 text-red-400" />
                   </div>
                   <div>
-                    <div className="text-sm text-white font-medium">panitia@event.id</div>
-                    <div className="text-xs text-gray-400">Email</div>
+                    <div className="text-sm text-white font-medium font-display">panitia@event.id</div>
+                    <div className="text-xs text-gray-400 font-display">Email</div>
                   </div>
                 </div>
               </div>
@@ -467,17 +467,17 @@ const Registration = () => {
             <div className="bg-gradient-to-br from-gray-900/40 to-gray-950/60 backdrop-blur-sm rounded-2xl border border-gray-800 p-6">
               <div className="mb-4">
                 <div className="flex justify-between text-sm mb-2">
-                  <span className="text-gray-400">Kuota</span>
-                  <span className="text-white font-semibold">16/24 Tim</span>
+                  <span className="text-gray-400 font-display">Kuota</span>
+                  <span className="text-white font-semibold font-display">16/24 Tim</span>
                 </div>
                 <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
                   <div 
-                    className="h-full bg-gradient-to-r from-red-500 to-rose-600 rounded-full transition-all duration-500"
+                    className="h-full bg-gradient-to-r from-red-500 font-display to-rose-600 rounded-full transition-all duration-500"
                     style={{ width: `${(16/24)*100}%` }}
                   ></div>
                 </div>
               </div>
-              <div className="flex items-center justify-center gap-2 text-sm text-red-300">
+              <div className="flex font-display items-center justify-center gap-2 text-sm text-red-300">
                 <ClockIcon className="w-4 h-4" />
                 <span>Segera daftar!</span>
               </div>
