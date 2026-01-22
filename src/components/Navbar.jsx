@@ -1,28 +1,26 @@
-import { useState } from 'react'
-import { 
-  Bars3Icon, 
-  XMarkIcon,
-  HomeIcon,
-  InformationCircleIcon,
-  CalendarIcon,
-  UserGroupIcon,
-  PhotoIcon,
-  PencilSquareIcon,
-  ChartBarIcon
-} from '@heroicons/react/24/outline'
+import { useState, useEffect } from 'react'
 
-const Navbar = ({ isDarkMode, setIsDarkMode, activeSection, setActiveSection }) => {
+const Navbar = ({ activeSection, setActiveSection }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
   
   const navItems = [
-    { id: 'home', label: 'Beranda', icon: <HomeIcon className="w-5 h-5" /> },
-    { id: 'about', label: 'Tentang', icon: <InformationCircleIcon className="w-5 h-5" /> },
-    { id: 'schedule', label: 'Jadwal', icon: <CalendarIcon className="w-5 h-5" /> },
-    { id: 'teams', label: 'Tim', icon: <UserGroupIcon className="w-5 h-5" /> },
-    { id: 'gallery', label: 'Galeri', icon: <PhotoIcon className="w-5 h-5" /> },
-    { id: 'score', label: 'Papan Skor', icon: <ChartBarIcon className="w-5 h-5" /> },
-    { id: 'registration', label: 'Pendaftaran', icon: <PencilSquareIcon className="w-5 h-5" /> },
+    { id: 'home', label: 'Beranda' },
+    { id: 'about', label: 'Tentang' },
+    { id: 'schedule', label: 'Jadwal' },
+    { id: 'teams', label: 'Tim' },
+    { id: 'gallery', label: 'Galeri' },
+    { id: 'score', label: 'Skor' },
+    { id: 'registration', label: 'Daftar' },
   ]
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId)
@@ -34,89 +32,124 @@ const Navbar = ({ isDarkMode, setIsDarkMode, activeSection, setActiveSection }) 
   }
 
   return (
-    <nav className="sticky top-0 z-50 bg-gray-900/95 backdrop-blur-md border-b border-primary-900/30 shadow-lg">
-      <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <div className="flex items-center space-x-3">
-            <div className=" p-2 rounded-lg">
-              <img src="/src/assets/LKBB.png" alt="Logo Elang Sakti" className='w-10 h-10' />
+    <nav className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ${
+      isScrolled ? 'w-[90%] max-w-4xl' : 'w-[85%] max-w-3xl'
+    }`}>
+      {/* Desktop Navigation - Floating Center */}
+      <div className="hidden lg:flex">
+        <div className="relative w-full">
+          {/* Background Blur dengan Glass Effect */}
+          <div className={`absolute inset-0 bg-gray-900/20 backdrop-blur-xl rounded-2xl border ${
+            isScrolled 
+              ? 'border-red-700/30 shadow-2xl shadow-red-900/10' 
+              : 'border-red-600/20 shadow-xl shadow-red-900/5'
+          }`}></div>
+          
+          {/* Navigation Items */}
+          <div className="relative flex items-center justify-center px-8 py-3">
+            <div className="flex items-center space-x-1">
+              {navItems.map((item, index) => (
+                <div key={item.id} className="relative">
+                  <button
+                    onClick={() => scrollToSection(item.id)}
+                    className={`relative px-5 py-2.5 text-sm font-medium transition-all duration-300 ${
+                      activeSection === item.id
+                        ? 'text-white'
+                        : 'text-gray-300 hover:text-white'
+                    }`}
+                  >
+                    <span className="relative z-10 font-display tracking-wide">
+                      {item.label}
+                    </span>
+                    
+                    {/* Active Indicator */}
+                    {activeSection === item.id && (
+                      <>
+                        <div className="absolute inset-0 bg-gradient-to-r from-red-600/20 to-red-700/20 rounded-lg blur-sm"></div>
+                        <div className="absolute inset-0 bg-gradient-to-r from-red-600/30 to-red-700/30 rounded-lg"></div>
+                        <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-4 h-0.5 bg-gradient-to-r from-red-400 to-red-300 rounded-full"></div>
+                      </>
+                    )}
+                  </button>
+                  
+                  {/* Separator (kecuali item terakhir) */}
+                  {index < navItems.length - 1 && (
+                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-px h-4 bg-gradient-to-b from-transparent via-red-700/20 to-transparent"></div>
+                  )}
+                </div>
+              ))}
             </div>
-            <div>
-              <h1 className="text-xl font-bold bg-gradient-to-r from-primary-400 to-primary-300 bg-clip-text text-transparent">
-                Elang Sakti
-              </h1>
-              <p className="text-xs text-gray-400">Paskibra SMPN 1 Jombang</p>
-            </div>
-          </div>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 ${
-                  activeSection === item.id
-                    ? 'bg-primary-900/30 text-primary-300'
-                    : 'text-gray-300 hover:bg-gray-800 hover:text-white'
-                }`}
-              >
-                {item.icon}
-                <span className="font-medium">{item.label}</span>
-              </button>
-            ))}
-            
-            <button
-              onClick={() => setIsDarkMode(!isDarkMode)}
-              className="ml-4 p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors"
-            >
-              {isDarkMode ? '🌙' : '☀️'}
-            </button>
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center space-x-4">
-            <button
-              onClick={() => setIsDarkMode(!isDarkMode)}
-              className="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors"
-            >
-              {isDarkMode ? '🌙' : '☀️'}
-            </button>
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors"
-            >
-              {isMenuOpen ? (
-                <XMarkIcon className="w-6 h-6 text-gray-300" />
-              ) : (
-                <Bars3Icon className="w-6 h-6 text-gray-300" />
-              )}
-            </button>
           </div>
         </div>
+      </div>
 
-        {/* Mobile Navigation */}
+      {/* Mobile Navigation */}
+      <div className="lg:hidden relative">
+        {/* Background Blur Mobile */}
+        <div className={`absolute inset-0 bg-gray-900/20 backdrop-blur-xl rounded-2xl border ${
+          isScrolled 
+            ? 'border-red-700/30 shadow-2xl shadow-red-900/10' 
+            : 'border-red-600/20 shadow-xl shadow-red-900/5'
+        }`}></div>
+        
+        {/* Mobile Header */}
+        <div className="relative flex items-center justify-between px-4 py-3">
+          <button
+            onClick={() => scrollToSection('home')}
+            className="text-lg font-bold bg-gradient-to-r from-red-400 to-red-300 bg-clip-text text-transparent font-display"
+          >
+            ELANG SAKTI
+          </button>
+          
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="p-2 rounded-lg bg-red-900/20 hover:bg-red-800/30 transition-colors duration-300"
+          >
+            <div className="w-6 h-6 flex flex-col justify-center items-center gap-1.5">
+              <span className={`block h-0.5 w-5 bg-red-300 transition-all duration-300 ${
+                isMenuOpen ? 'rotate-45 translate-y-2' : ''
+              }`}></span>
+              <span className={`block h-0.5 w-5 bg-red-300 transition-all duration-300 ${
+                isMenuOpen ? 'opacity-0' : ''
+              }`}></span>
+              <span className={`block h-0.5 w-5 bg-red-300 transition-all duration-300 ${
+                isMenuOpen ? '-rotate-45 -translate-y-2' : ''
+              }`}></span>
+            </div>
+          </button>
+        </div>
+
+        {/* Mobile Menu Dropdown */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-800">
-            <div className="flex flex-col space-y-2">
+          <div className="relative mt-2 rounded-xl overflow-hidden">
+            <div className="absolute inset-0 bg-gray-900/30 backdrop-blur-xl"></div>
+            <div className="relative">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-300 ${
+                  className={`w-full px-4 py-3 text-left transition-all duration-300 border-b border-red-900/30 last:border-b-0 ${
                     activeSection === item.id
-                      ? 'bg-primary-900/30 text-primary-300'
-                      : 'text-gray-300 hover:bg-gray-800'
+                      ? 'bg-red-900/20 text-white'
+                      : 'text-gray-300 hover:bg-red-800/10 hover:text-white'
                   }`}
                 >
-                  {item.icon}
-                  <span className="font-medium">{item.label}</span>
+                  <div className="flex items-center justify-between">
+                    <span className="font-display">{item.label}</span>
+                    {activeSection === item.id && (
+                      <div className="w-2 h-2 bg-gradient-to-r from-red-400 to-red-300 rounded-full"></div>
+                    )}
+                  </div>
                 </button>
               ))}
             </div>
           </div>
         )}
+      </div>
+
+      {/* Scroll Progress Indicator */}
+      <div className="absolute -bottom-2 left-0 right-0">
+        <div className="h-0.5 bg-gradient-to-r from-transparent via-red-900/10 to-transparent"></div>
       </div>
     </nav>
   )
