@@ -43,6 +43,8 @@ export const validateEmail = (email) => {
   return re.test(email)
 }
 
+
+
 export const validatePhone = (phone) => {
   const re = /^[0-9]{10,13}$/
   return re.test(phone)
